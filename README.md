@@ -1,0 +1,2 @@
+# personal_portfolio
+This is my personal portfolio page. If you would like to copy it to look at it and play around with it, make sure you input your own mysql user and password under the MySQLConnection as mine is in a file not uploaded to git. same with the flask secret key. this was a test website to try some things I have learned. the files may change overtime as I plan on using this website as a guinea pig for new things I learn
