@@ -1,0 +1,15 @@
+img {
+    width: 20em;
+    border-radius: 8px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.401);
+}
+.body {
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+#about {
+    width: 40%;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Blog</title>
+    <link rel="stylesheet" href="/static/style/main.css">
+    <link rel="stylesheet" href="/static/style/public_blog.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav1">
+            <a href="/">Main Page</a>
+            <a href="/personal_blog">My Blog</a>
+            <a href="/account_page/{{user.id}}">Your Account</a>
+            <a href="/logout">logout</a>
+            <div class="animation start-MyBlog"></div>
+        </nav>
+        <div class="flex">
+            <div class="text_areas"id="left">
+                <p>Here you can post your own blogs if you have created an account!</p>
+                <form action="/blog_post" method="POST">
+                    <label for="post_title">Title:</label>
+                    <br>
+                    <input type="text" name="post_title" id="post_title">
+                    <br>
+                    <label for="post_text">Blog Text:</label>
+                    <br>
+                    <textarea name="post_text" id="post_text" cols="30" rows="5"></textarea>
+                    <br>
+                    <button>submit</button>
+                </form>
+            </div>
+            <div>
+                {%for posts in blog | reverse%}
+                <div class="text_areas right">
+                    <h4>posted by: {{posts.user_posts.first_name}} {{posts.user_posts.last_name}} | date: {{posts.created_at.strftime('%m-%d-%y')}} </h4>
+                    <h5>Title: {{posts.title}}</h5>
+                    <div class="p">
+                        <p>{{posts.post_text}}</p>
+                    </div>
+                    <div>
+                        {%if posts.user_posts.id == session['user_id']%}
+                        <a href="/edit/{{posts.id}}">edit</a>
+                        <a href="/delete/{{posts.id}}" >delete</a>
+                        {%endif%}
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
