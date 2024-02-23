@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/static/style/main.css">
+    <link rel="stylesheet" href="/static/style/edit.css">
+</head>
+<body>
+    <div class="blog_edit">
+        <p>Edit Post:</p>
+        <form action="/update/{{post.id}}" method="POST">
+            <div class="space">
+                <label for="post_title">Title: </label>
+                <input type="text" name="post_title" id="post_title" value="{{post.title}}">
+            </div>
+            <div class="space">
+                <label for="post_text">Blog Text: </label>
+                <textarea name="post_text" id="post_text" cols="30" rows="5">{{post.post_text}}</textarea>
+            </div>
+            <button>submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
